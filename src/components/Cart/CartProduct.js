@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   decreaseProductQuantity,
   increaseProductQuantity,
+  removeProductFromCart,
 } from "../../redux/cart/actions";
 import { addProduct, decreaseProduct } from "../../redux/products/actions";
 
@@ -14,8 +15,12 @@ const CartProduct = ({ id, productName, productPrice, addedQuantity }) => {
   };
 
   const decrementHandler = (id) => {
-    dispatch(decreaseProductQuantity(id, 1));
-    dispatch(decreaseProduct(id, 1));
+    if (addedQuantity > 1) {
+      dispatch(decreaseProductQuantity(id, 1));
+      dispatch(decreaseProduct(id, 1));
+    } else {
+      dispatch(removeProductFromCart(id));
+    }
   };
 
   return (

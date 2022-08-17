@@ -9,10 +9,8 @@ import { addProduct } from "../../redux/products/actions";
 const Product = ({ id, productName, productPrice, productQuantity }) => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  // console.log(id, productName, productPrice, productQuantity);
 
   const addProductHandler = (id) => {
-    console.log(id);
     if (cart.find((product) => product.id === id)) {
       dispatch(increaseProductQuantity(id));
       dispatch(addProduct(id, 1));

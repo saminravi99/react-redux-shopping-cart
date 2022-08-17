@@ -1,7 +1,13 @@
-import { ADD_TO_CART, DECREASE_QUANTITY, INCREASE_QUANTITY } from "./actionTypes";
+import {
+  ADD_TO_CART,
+  DECREASE_QUANTITY,
+  INCREASE_QUANTITY,
+  REMOVE_FROM_CART,
+} from "./actionTypes";
 
-//Intial State
+//Initial State
 const initialState = {
+  totalProducts: 0,
   cart: [
     // {
     //   id: 1,
@@ -18,6 +24,7 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: [...state.cart, action.payload],
+        totalProducts: state?.totalProducts ? state.totalProducts + 1 : 1,
       };
     case INCREASE_QUANTITY:
       return {
@@ -26,12 +33,15 @@ const cartReducer = (state = initialState, action) => {
           if (product.id === action.payload.id) {
             return {
               ...product,
-              addedQuantity: product?.addedQuantity ? product?.addedQuantity + 1 : 1,
+              addedQuantity: product?.addedQuantity
+                ? product?.addedQuantity + 1
+                : 1,
             };
           } else {
             return product;
           }
         }),
+        totalProducts: state?.totalProducts ? state.totalProducts + 1 : 1,
       };
     case DECREASE_QUANTITY:
       return {
@@ -46,7 +56,14 @@ const cartReducer = (state = initialState, action) => {
             return product;
           }
         }),
+        totalProducts: state?.totalProducts ? state.totalProducts - 1 : 0,
       };
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((product) => product.id !== action.payload.id),
+      };
+
     default:
       return state;
   }
