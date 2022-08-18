@@ -12,7 +12,7 @@ const CartTotal = () => {
       <div className="flex justify-center items-center text-center">
         <div className="text-xl font-semibold">
           <p>Total Price</p>
-          <p className="text-5xl">TK. {totalPrice.toFixed(2)}</p>
+          <p className="text-5xl">TK. {totalPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
         </div>
       </div>
     </div>

@@ -22,14 +22,16 @@ const Product = ({ id, productName, productPrice, productQuantity }) => {
   };
 
   return (
-    <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
+    <div className="bg-white md:py-4 md:px-4 py-2 px-0 shadow-md rounded-lg my-4 mx-4">
       <div className="flex justify-between px-4 items-center">
         <div className="text-lg font-semibold">
           <p>
             {productName} ({productQuantity})
           </p>
 
-          <p className="text-gray-400 text-base">Tk {productPrice}</p>
+          <p className="text-gray-400 text-base">
+            Tk {productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </p>
         </div>
         <div className="text-lg font-semibold">
           {products.find((product) => product.id === id).productQuantity > 0 ? (
@@ -53,7 +55,11 @@ const Product = ({ id, productName, productPrice, productQuantity }) => {
               </svg>
             </button>
           ) : (
-            <span class="rounded-full bg-red-600 text-sm text-white px-2 py-1">
+            <span
+              className=" rounded-full
+            text-xs
+             bg-red-600 md:text-sm text-white px-2 py-1"
+            >
               Stock Out
             </span>
           )}
