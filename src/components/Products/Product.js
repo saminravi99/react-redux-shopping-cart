@@ -12,8 +12,6 @@ const Product = ({ id, productName, productPrice, productQuantity }) => {
   const dispatch = useDispatch();
 
   const addProductHandler = (id) => {
-    //  if (products.find((product) => product.id === id).productQuantity > 0) {
-    //   console.log(products.find((product) => product.id === id).productQuantity);
     if (cart.find((product) => product.id === id)) {
       dispatch(increaseProductQuantity(id));
       dispatch(addProduct(id, 1));
@@ -21,11 +19,6 @@ const Product = ({ id, productName, productPrice, productQuantity }) => {
       dispatch(addProductToCart(id, productName, productPrice));
       dispatch(addProduct(id, 1));
     }
-
-    //  }
-    // if (products.find((product) => product.id === id).productQuantity === 0) {
-    //   alert("Out of stock");
-    // }
   };
 
   return (

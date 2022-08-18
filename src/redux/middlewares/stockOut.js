@@ -36,7 +36,6 @@ const stockOut = (store) => (next) => (action) => {
   const totalProductQuantity = prevState.products.products.find(
     (product) => product.id === action.payload.id
   ).productQuantity;
-  console.log(totalProductQuantity);
   if (
     (action.type === ADD_TO_CART_FIRST ||
       action.type === INCREASE_QUANTITY ||
