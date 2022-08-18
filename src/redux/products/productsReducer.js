@@ -24,7 +24,7 @@ const initialState = {
   ],
 };
 
-//Reducer:
+//Reducer Function:
 const productsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART_FIRST:

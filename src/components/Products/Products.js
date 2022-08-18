@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Product from "./Product";
 
 const Products = () => {
+  //selector to get the products from shop
   const products = useSelector((state) => state.products);
 
   return (

@@ -4,6 +4,7 @@ import CartTotalItem from "./CartTotalItem";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
+  //selector to get the cart products
   const cart = useSelector((state) => state.cart);
   return (
     <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4">
@@ -11,7 +12,7 @@ const Cart = () => {
         {cart.cart.map((product) => (
           <CartProduct key={product.id} id={product.id} {...product} />
         ))}
-        {/* Right Side Middle */}
+        {/* To Calculate How Many Products are there in the cart that has been added*/}
         <CartTotalItem 
         totalProducts={cart.totalProducts}
         />

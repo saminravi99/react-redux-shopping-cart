@@ -2,7 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const CartTotal = () => {
+  //selector to get the cart products
   const cart = useSelector((state) => state.cart);
+
+  //calculate the total price of all products added to cart
   const totalPrice = cart.cart.reduce((total, product) => {
     return total + product.productPrice * product.addedQuantity;
   }, 0);

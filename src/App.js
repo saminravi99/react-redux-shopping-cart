@@ -14,14 +14,14 @@ function App() {
           </h1>
         </div>
         <div className="grid grid-cols-12 gap-6">
-          {/* Left Side */}
+          {/* Product List of the Shop */}
           <Products />
 
           <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4">
-            {/* Right Side Top */}
+            {/* Cart with added products*/}
             <Cart />
 
-            {/* Right Side Bottom */}
+            {/* Total Price of All the added Products to the cart*/}
             <CartTotal />
           </div>
         </div>

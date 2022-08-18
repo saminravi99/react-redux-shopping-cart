@@ -8,12 +8,16 @@ import {
 import { addProduct, decreaseProduct } from "../../redux/products/actions";
 
 const CartProduct = ({ id, productName, addedQuantity }) => {
+  //dispatch to dispatch the actions
   const dispatch = useDispatch();
+  
+  //function to increase product quantity in cart
   const incrementHandler = (id) => {
     dispatch(increaseProductQuantity(id, 1));
     dispatch(addProduct(id, 1));
   };
 
+  //function to decrease product quantity in cart
   const decrementHandler = (id) => {
     if (addedQuantity > 1) {
       dispatch(decreaseProductQuantity(id, 1));
