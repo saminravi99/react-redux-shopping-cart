@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import "./App.css";
 import Cart from "./components/Cart/Cart";
 import CartTotal from "./components/Cart/CartTotal";
@@ -25,6 +26,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }

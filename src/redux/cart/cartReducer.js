@@ -56,12 +56,13 @@ const cartReducer = (state = initialState, action) => {
             return product;
           }
         }),
-        totalProducts: state?.totalProducts ? state.totalProducts - 1 : 0,
+        totalProducts: state.totalProducts - 1 ,
       };
     case REMOVE_FROM_CART:
       return {
         ...state,
         cart: state.cart.filter((product) => product.id !== action.payload.id),
+        totalProducts: state.totalProducts - 1,
       };
 
     default:
